@@ -1,6 +1,6 @@
 'use strict';
 
-var bowling_kata = require('../lib/bowling-kata.js');
+var bowling = require('../lib/bowling-kata.js');
 
 /*
   ======== A Handy Little Nodeunit Reference ========
@@ -22,15 +22,10 @@ var bowling_kata = require('../lib/bowling-kata.js');
     test.ifError(value)
 */
 
-exports['awesome'] = {
-  setUp: function(done) {
-    // setup here
-    done();
-  },
-  'no args': function(test) {
+exports.score = {
+  'all misses returns 0': function(test) {
     test.expect(1);
-    // tests here
-    test.equal(bowling_kata.awesome(), 'awesome', 'should be awesome.');
+    test.equal(bowling.score('--------------------'), 0);
     test.done();
   },
 };
