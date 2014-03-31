@@ -28,4 +28,9 @@ exports.score = {
     test.equal(bowling.score('--------------------'), 0);
     test.done();
   },
+  'no strike or spare returns sum': function(test) {
+    test.expect(1);
+    test.equal(bowling.score('9-9-9-9-9-9-9-9-9-9-'), 90);
+    test.done();
+  },
 };
