@@ -48,7 +48,7 @@ exports.score = {
     test.equal(bowling.score('5/5------------------'), 20);
     test.done();
   },
-  'all spares': function(test) {
+  'all spares and one bonus throw': function(test) {
     test.expect(1);
     test.equal(bowling.score('5/5/5/5/5/5/5/5/5/5/5'), 150);
     test.done();
