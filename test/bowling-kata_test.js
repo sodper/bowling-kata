@@ -28,14 +28,29 @@ exports.score = {
     test.equal(bowling.score('--------------------'), 0);
     test.done();
   },
-  'all misses but one returns score': function(test) {
+  'all misses but one': function(test) {
     test.expect(1);
     test.equal(bowling.score('9-------------------'), 9);
     test.done();
   },
-  'no strike or spare returns sum': function(test) {
+  'all points and misses': function(test) {
     test.expect(1);
     test.equal(bowling.score('9-9-9-9-9-9-9-9-9-9-'), 90);
+    test.done();
+  },
+  'spare followed by miss': function(test) {
+    test.expect(1);
+    test.equal(bowling.score('5/-------------------'), 10);
+    test.done();
+  },
+  'spare followed by point': function(test) {
+    test.expect(1);
+    test.equal(bowling.score('5/5------------------'), 20);
+    test.done();
+  },
+  'all spares': function(test) {
+    test.expect(1);
+    test.equal(bowling.score('5/5/5/5/5/5/5/5/5/5/5'), 150);
     test.done();
   },
 };
