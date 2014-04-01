@@ -63,4 +63,19 @@ exports.score = {
     test.equal(bowling.score('X5------------------'), 20);
     test.done();
   },
+  'strike followed by two points': function(test) {
+    test.expect(1);
+    test.equal(bowling.score('X55-----------------'), 30);
+    test.done();
+  },
+  'strike followed by one strike': function(test) {
+    test.expect(1);
+    test.equal(bowling.score('XX----------------'), 30);
+    test.done();
+  },
+  'strike followed by one strike and two points': function(test) {
+    test.expect(1);
+    test.equal(bowling.score('XX55--------------'), 55);
+    test.done();
+  },
 };
