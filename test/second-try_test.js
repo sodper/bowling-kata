@@ -35,6 +35,10 @@ var rollSpare = function() {
   game.roll(5);
 };
 
+var rollStrike = function() {
+  game.roll(10);
+};
+
 exports.setUp = function(callback) {
   game = new bowling.Game();
   callback();
@@ -70,7 +74,7 @@ exports.score = {
   'one strike': function(test) {
     test.expect(1);
 
-    game.roll(10);
+    rollStrike();
     game.roll(3);
     game.roll(4);
     rollMany(16, 0);
