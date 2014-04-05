@@ -82,4 +82,12 @@ exports.score = {
     test.equal(game.score(), 24);
     test.done();
   },
+  'perfect game': function(test) {
+    test.expect(1);
+
+    rollMany(12, 10);
+
+    test.equal(game.score(), 300);
+    test.done();
+  },
 };
