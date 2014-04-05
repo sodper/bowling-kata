@@ -30,10 +30,15 @@ var rollMany = function(n, pins) {
   }
 };
 
+var rollSpare = function() {
+  game.roll(5);
+  game.roll(5);
+};
+
 exports.setUp = function(callback) {
   game = new bowling.Game();
   callback();
-}
+};
 
 exports.score = {
   'all misses': function(test) {
@@ -55,12 +60,22 @@ exports.score = {
   'one spare': function(test) {
     test.expect(1);
 
-    game.roll(5);
-    game.roll(5);
+    rollSpare();
     game.roll(3);
     rollMany(17, 0);
 
     test.equal(game.score(), 16);
+    test.done();
+  },
+  'one strike': function(test) {
+    test.expect(1);
+
+    game.roll(10);
+    game.roll(3);
+    game.roll(4);
+    rollMany(16, 0);
+
+    test.equal(game.score(), 24);
     test.done();
   },
 };
